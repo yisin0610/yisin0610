@@ -1,0 +1,155 @@
+/* === 全局樣式 === */
+body {
+    margin: 0;
+    padding: 0;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.9)),
+        url(../image/123.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #333;
+}
+
+/* === 定義 fadeIn 動畫 === */
+@keyframes fadeIn {
+    0% {
+        opacity: 0; /* 初始狀態為完全透明 */
+        transform: translateY(20px); /* 稍微向下移動 */
+    }
+    100% {
+        opacity: 1; /* 最終狀態為完全不透明 */
+        transform: translateY(0); /* 回到原來的位置 */
+    }
+}
+
+/* === 導覽列樣式 === */
+#top {
+    background-color: rgba(34, 111, 182, 0.8);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 10px 0;
+    z-index: 1000;
+    text-align: center;
+}
+
+#top ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#top ul li {
+    display: inline-block;
+}
+
+#top ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-weight: bold;
+}
+
+#top ul li a:hover {
+    color: rgb(255, 233, 34);
+}
+
+#top ul li.active a {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: black;
+    border-radius: 5px;
+}
+
+/* === 個人介紹區塊 === */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 80px; /* 預留導航欄空間 */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.profile-section {
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    animation: fadeIn 2s ease-out; /* 添加淡入動畫 */
+}
+
+.profile-photo img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-right: 20px;
+}
+
+.profile-text {
+    flex: 1;
+    color: #fff;
+}
+
+.profile-text h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.profile-text p {
+    margin: 5px 0;
+    line-height: 1.6;
+}
+
+.contact ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+    display: flex;
+    justify-content: start;
+}
+
+.contact ul li {
+    margin-right: 15px;
+}
+
+.contact ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 2rem;
+    transition: color 0.3s;
+}
+
+.contact ul li a:hover {
+    color: aqua;
+}
+
+/* === 輪播區塊 === */
+.carousel-inner {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-item {
+    width: 100%; /* 每個輪播項目佔滿父容器 */
+    flex-shrink: 0; /* 防止項目縮小 */
+}
+
+.carousel-item img {
+    width: 100%; /* 圖片佔據 100% 寬度 */
+    height: auto; /* 高度自適應 */
+    object-fit: cover; /* 圖片自動覆蓋 */
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+    .carousel-item img {
+        height: 200px; /* 小螢幕上減少圖片高度 */
+    }
+}

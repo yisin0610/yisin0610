@@ -1,0 +1,108 @@
+/* 設置 html 元素的 margin 和 padding */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* 確保頁面高度為 100% */
+    font-family: Arial, sans-serif;
+}
+
+/* 頁面背景和導航列樣式 */
+#top {
+    background-color: rgb(34, 111, 182);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 10px 0;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 2);
+}
+#top ul {
+    padding-left: 0;
+    margin: 0;
+    list-style: none;
+    text-align: center;
+}
+#top ul li {
+    display: inline-block;
+}
+#top ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+#top ul li a:hover {
+    color: rgb(255, 233, 34);
+}
+#top ul li.active a {
+    background-color: rgba(255, 255, 255, 0.891);
+    color: black;
+    border-radius: 5px;
+}
+
+/* 背景圖片區域 */
+#home {
+    min-height: 100vh; /* 確保區域至少為視窗高度 */
+    background-image: url(../image/75227c14fc9bbf4553f774ac7cb0a044_b9d7024de09221b3931495a3758d7e10.jpg); /* 背景圖片路徑 */
+    background-size: cover; /* 背景圖片覆蓋整個區域 */
+    background-position: center; /* 背景圖片居中顯示 */
+    background-repeat: no-repeat; /* 確保圖片不會重複 */
+    display: flex;
+    flex-direction: column; /* 使文字垂直排列 */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: rgb(1, 18, 129);
+    position: relative; /* 讓 before 偽元素能正常顯示 */
+}
+
+/* 透明遮罩 */
+#home::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.4); /* 透明的白色背景 */
+    z-index: 0;
+}
+
+/* 文字區域 */
+#home h1, #home p {
+    z-index: 1;
+    margin: 10px 0; /* 每段文字上下有間隔 */
+    padding: 10px;  /* 給文字一些內邊距 */
+   
+    border-radius: 10px; /* 邊角圓滑 */
+    line-height: 1.0; /* 行間距 */
+    font-size: 1.5rem; /* 可以調整字體大小 */
+    font-weight: bold;
+    transform: scale(0); /* 初始狀態，縮小 */
+    animation: zoomIn 1s forwards; /* 添加動畫 */
+}
+
+#home h1 {
+    font-size: 3rem; /* 增大標題字型大小 */
+}
+
+/* 定義縮放動畫 */
+@keyframes zoomIn {
+    0% {
+        transform: scale(0); /* 初始狀態：完全縮小 */
+    }
+    100% {
+        transform: scale(1); /* 最終狀態：恢復原大小 */
+    }
+}
+
+/* 頁面內容樣式 */
+.content {
+    margin-top: 20px;
+}
+
+/* 頁面上其他區域的邊距 */
+body {
+    padding-top: 60px; /* 留出足夠的空間給固定的導航列 */
+}
